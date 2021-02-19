@@ -42,11 +42,11 @@ const Profile = () => {
 			</div>
 			<div className="flex flex-row justify-center pt-7 space-x-3 bg-gray-100 h-auto pb-16">
 				<div className="flex flex-col space-y-1">
-					<div className="flex flex-row space-x-2 text-blue-700 items-center px-6 bg-white cursor-pointer w-80 h-16 rounded-xl">
+					<div className="flex flex-row space-x-2 text-blue-700 items-center px-6 bg-white cursor-pointer w-80 h-16 rounded-xl shadow-lg">
 						<FiUser className="w-5 h-5 font-md"></FiUser>
 						<p className="font-bold">Profile</p>
 					</div>
-					<div className="flex flex-row space-x-2 text-blue-700 items-center  px-6 bg-white cursor-pointer w-80 h-16 rounded-xl">
+					<div className="flex flex-row space-x-2 text-blue-700 items-center  px-6 bg-white cursor-pointer w-80 h-16 rounded-xl shadow-lg">
 						<GoNote className="w-5 h-5"></GoNote>
 						<p className="font-bold font-md">Quizes</p>
 					</div>

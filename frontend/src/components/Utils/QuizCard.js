@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 const QuizCard = () => {
 	return (
 		<div>
@@ -61,23 +61,25 @@ const QuizCard = () => {
 							</svg>
 							<span>4</span>
 						</div>
-						<div className="flex flex-row space-x-2 cursor-pointer hover:bg-gray-200 px-2 py-1 rounded-lg">
-							<p>Take Quiz</p>
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								width="20"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke="currentColor"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
-								/>
-							</svg>
-						</div>
+						<Link to="/create-quiz" className="flex">
+							<div className="flex flex-row space-x-2 cursor-pointer hover:bg-gray-200 px-2 py-1 rounded-lg">
+								<p>Take Quiz</p>
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="20"
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke="currentColor"
+								>
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										stroke-width="2"
+										d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+									/>
+								</svg>
+							</div>
+						</Link>
 					</div>
 				</div>
 			</div>

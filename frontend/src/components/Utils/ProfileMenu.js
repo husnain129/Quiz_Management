@@ -7,7 +7,7 @@ const ProfileMenu = () => {
 	return (
 		<div>
 			{/* ........Account DETAIL......... */}
-			<div className="flex flex-col h-auto bg-white pb-10 rounded-lg">
+			<div className="flex flex-col h-auto bg-white pb-10 rounded-lg shadow-lg">
 				{/* <AccountDetails></AccountDetails> */}
 				{account ? (
 					<AccountDetails setAccount={setAccount}></AccountDetails>
@@ -18,12 +18,8 @@ const ProfileMenu = () => {
 			{/* ........Account DETAIL END......... */}
 
 			{/* .........PROFILE DETAIL........... */}
-			<div className="flex flex-col h-auto bg-white pb-10 rounded-lg mt-5">
-				{profile?
-				<ProfileDetails setProfile={setProfile}/>
-				:
-				<ProfileDetailsEdit setProfile={setProfile}/>
-			}
+			<div className="flex flex-col h-auto bg-white pb-10 rounded-lg mt-5 shadow-lg">
+				{profile ? <ProfileDetails setProfile={setProfile} /> : <ProfileDetailsEdit setProfile={setProfile} />}
 			</div>
 
 			{/* .........PROFILE DETAIL END........... */}
@@ -142,12 +138,15 @@ const AccountDetailsEdit = ({ setAccount }) => {
 	);
 };
 
-const ProfileDetails = ({setProfile}) => {
+const ProfileDetails = ({ setProfile }) => {
 	return (
 		<div>
 			<div className="flex flex-row justify-between p-7 font-bold text-lg items-center text-blue-700">
 				<h1 className="text-2xl">Profile</h1>
-				<div className="flex flex-row space-x-1 items-center text-center hover:bg-gray-100 cursor-pointer rounded-lg p-2" onClick={()=>setProfile(false)}>
+				<div
+					className="flex flex-row space-x-1 items-center text-center hover:bg-gray-100 cursor-pointer rounded-lg p-2"
+					onClick={() => setProfile(false)}
+				>
 					<p>Edit</p>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
@@ -200,7 +199,7 @@ const ProfileDetails = ({setProfile}) => {
 	);
 };
 
-const ProfileDetailsEdit = ({setProfile}) => {
+const ProfileDetailsEdit = ({ setProfile }) => {
 	return (
 		<div className="flex flex-col  items-center">
 			<h1 className="font-bold text-xl py-8">Edit Profile Details</h1>
@@ -223,7 +222,10 @@ const ProfileDetailsEdit = ({setProfile}) => {
 				</FormControl>
 			</div>
 			<div className="flex items-center justify-center pt-7">
-				<h1 className="px-3 py-3 rounded-xl w-auto h-auto text-white bg-red-600 cursor-pointer hover:bg-red-900"  onClick={()=>setProfile(true)}>
+				<h1
+					className="px-3 py-3 rounded-xl w-auto h-auto text-white bg-red-600 cursor-pointer hover:bg-red-900"
+					onClick={() => setProfile(true)}
+				>
 					Save Changes
 				</h1>
 			</div>
