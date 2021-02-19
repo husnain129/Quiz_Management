@@ -9,6 +9,7 @@ function App() {
 			<Navbar></Navbar>
 			{/* <Home /> */}
 			<Profile />
+			{/* <QuizForm /> */}
 		</div>
 	);
 }

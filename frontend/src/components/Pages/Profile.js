@@ -3,6 +3,7 @@ import React from 'react';
 import { FiUser } from 'react-icons/fi';
 import { GoNote } from 'react-icons/go';
 import ProfileMenu from '../Utils/ProfileMenu';
+// import QuizMenu from '../Utils/QuizMenu';
 
 const Profile = () => {
 	return (
@@ -51,8 +52,9 @@ const Profile = () => {
 					</div>
 					<div className="flex flex-row space-x-2"></div>
 				</div>
-				<div className="w-3/5 rounded-2xl">
-					<ProfileMenu></ProfileMenu>
+				<div className="w-3/5 rounded-2xl" style={{ minHeight: '59vh' }}>
+					{/* <QuizMenu></QuizMenu> */}
+					<ProfileMenu />
 				</div>
 			</div>
 		</div>
