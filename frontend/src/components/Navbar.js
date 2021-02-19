@@ -1,6 +1,8 @@
+import { Avatar, Menu, MenuButton, MenuItem, MenuList, Wrap, WrapItem } from '@chakra-ui/react';
 import React from 'react';
 
 const Navbar = () => {
+	const [isLogin, setIsLogin] = React.useState(true);
 	return (
 		<div className="flex flex-row justify-between p-3 shadow-xl">
 			<div className="flex flex-none pl-8">
@@ -60,14 +62,34 @@ const Navbar = () => {
 						</svg>
 					</div>
 				</div>
-				<div className="flex flex-row space-x-4 items-center text-center pr-12">
-					<button className="text-md w-24 h-9 border-blue-600 border-opacity-100 border font-bold rounded-lg hover:bg-gray-200">
-						Sign Up
-					</button>
-					<button className="text-md w-24 h-9 border-blue-600 border-opacity-100 border font-bold rounded-lg hover:bg-gray-200">
-						Login
-					</button>
-				</div>
+				{isLogin ? (
+					<div className="pr-4">
+						<Menu placement="bottom">
+							<MenuButton className="focus:outline-none">
+								<Wrap>
+									<WrapItem>
+										<Avatar size="md" name="Dan Abrahmov" src="https://bit.ly/dan-abramov" />
+									</WrapItem>
+								</Wrap>
+							</MenuButton>
+							<MenuList>
+								<MenuItem className="focus:outline-none">Profile</MenuItem>
+								<MenuItem className="focus:outline-none">Quizes</MenuItem>
+								<hr />
+								<MenuItem className="focus:outline-none">Logout</MenuItem>
+							</MenuList>
+						</Menu>
+					</div>
+				) : (
+					<div className="flex flex-row space-x-4 items-center text-center pr-12">
+						<button className="text-md w-24 h-9 border-blue-600 border-opacity-100 border font-bold rounded-lg hover:bg-gray-200">
+							Sign Up
+						</button>
+						<button className="text-md w-24 h-9 border-blue-600 border-opacity-100 border font-bold rounded-lg hover:bg-gray-200">
+							Login
+						</button>
+					</div>
+				)}
 			</div>
 		</div>
 	);
