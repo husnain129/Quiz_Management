@@ -86,27 +86,75 @@ const AccountDetails = ({ setAccount }) => {
 };
 
 const AccountDetailsEdit = ({ setAccount }) => {
+	const [bgImgUrl, setBgImageUrl] = useState('');
+	const [profileImgUrl, setprofileImageUrl] = useState('');
+	const onBackgroundChange = (e) => {
+		onImageChange(e, setBgImageUrl);
+	};
+
+	const onProfileChange = (e) => {
+		onImageChange(e, setprofileImageUrl);
+	};
+
+	const onImageChange = (e, setImg) => {
+		if (e.target.files && e.target.files[0]) {
+			let img = e.target.files[0];
+			setImg(URL.createObjectURL(img));
+		}
+	};
+
+	console.log(bgImgUrl);
 	return (
 		<div>
 			<div className="flex flex-col space-y-8 w-full h-auto p-2">
-				<div className="flex justify-center items-center group cursor-pointer transition duration-300 relative hover:opacity-80 ">
-					<img
-						src="https://images.unsplash.com/photo-1510832198440-a52376950479?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8Z2lybHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80"
-						className="object-cover w-full rounded-xl h-96"
-						alt="cover image"
+				<div className="flex justify-center group items-center group cursor-pointer transition duration-300 relative hover:opacity-80 ">
+					{bgImgUrl ? (
+						<div>
+							<img src={bgImgUrl} className="object-cover w-full rounded-xl h-96" alt="cover image" />
+						</div>
+					) : (
+						<>
+							<img
+								src="https://images.unsplash.com/photo-1510832198440-a52376950479?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8Z2lybHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80"
+								className="object-cover w-full rounded-xl h-96"
+								alt="cover image"
+							/>
+							<div className="absolute text-white text-center w-auto h-auto px-4 py-3 font-bold text-xl rounded-xl bg-blue-900 opacity-0 group-hover:opacity-100">
+								<h1 className="object-center ">Change Background</h1>
+							</div>
+						</>
+					)}
+
+					<input
+						type="file"
+						name="myImage"
+						accept="image/*"
+						onChange={onBackgroundChange}
+						className="w-full h-full absolute opacity-0 cursor-pointer"
 					/>
-					<div className="absolute text-white text-center w-auto h-auto px-4 py-3 font-bold text-xl rounded-xl bg-blue-900 opacity-0 group-hover:opacity-100">
-						<h1 className="object-center ">Change Background</h1>
-					</div>
+					<p className="font-bold text-lg text-gray-500 absolute bottom-0 opacity-0 group-hover:opacity-100 p-2 rounded-xl bg-black w-full text-center transition duration-300">
+						Click Me (Optional)
+					</p>
 				</div>
 				<div className="flex flex-col space-y-6 items-center">
 					<div className="flex flex-row space-x-6 items-center">
 						<Wrap>
 							<WrapItem>
-								<Avatar size="lg" name="Dan Abrahmov" src="https://bit.ly/dan-abramov" />
+								{profileImgUrl ? (
+									<Avatar size="lg" name="Dan Abrahmov" src={profileImgUrl} />
+								) : (
+									<Avatar size="lg" name="Dan Abrahmov" src="https://bit.ly/dan-abramov" />
+								)}
 							</WrapItem>
 						</Wrap>
-						<div className="p-2 text-white w-auto h-auto rounded-xl cursor-pointer bg-blue-600 hover:bg-blue-800 ">
+						<div className="p-2 text-white w-auto h-auto rounded-xl cursor-pointer bg-blue-600 hover:bg-blue-800 relative">
+							<input
+								type="file"
+								name="myImage"
+								accept="image/*"
+								onChange={onProfileChange}
+								className="w-full h-full absolute opacity-0 cursor-pointer"
+							/>
 							<p>Change Profile</p>
 						</div>
 					</div>

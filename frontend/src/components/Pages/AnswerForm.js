@@ -13,16 +13,16 @@ const AnswerForm = () => {
 					</div>
 					<div className="px-28 h-auto pb-11">
 						<div className="flex flex-row flex-wrap justify-around">
-							<p className="pr-56 pl-10 mb-3 py-3 border border-blue-800 cursor-pointer hover:bg-gray-100 rounded-md">
+							<p className="pr-56 pl-10 mb-3 py-3 border border-blue-800 cursor-pointer hover:bg-gray-200 rounded-md">
 								Double
 							</p>
-							<p className="pr-56 pl-10 mb-3 py-3 border border-blue-800 cursor-pointer hover:bg-gray-100 rounded-md">
+							<p className="pr-56 pl-10 mb-3 py-3 border border-blue-800 cursor-pointer hover:bg-gray-200 rounded-md">
 								Double
 							</p>
-							<p className="pr-56 pl-10 mb-3 py-3 border border-blue-800 cursor-pointer hover:bg-gray-100 rounded-md">
+							<p className="pr-56 pl-10 mb-3 py-3 border border-blue-800 cursor-pointer hover:bg-gray-200 rounded-md">
 								Double
 							</p>
-							<p className="pr-56 pl-10 mb-3 py-3 border border-blue-800 cursor-pointer hover:bg-gray-100 rounded-md">
+							<p className="pr-56 pl-10 mb-3 py-3 border border-blue-800 cursor-pointer hover:bg-gray-200 rounded-md">
 								Double
 							</p>
 						</div>

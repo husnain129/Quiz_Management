@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import AnswerForm from './components/Pages/AnswerForm';
 import Home from './components/Pages/Home';
 // import AnswerForm from './components/Pages/AnswerForm';
 import Profile from './components/Pages/Profile';
@@ -14,6 +15,9 @@ function App() {
 				<Switch>
 					<Route path="/create-quiz">
 						<QuizForm />
+					</Route>
+					<Route path="/answer-form">
+						<AnswerForm />
 					</Route>
 					<Route path="/profile">
 						<Profile />

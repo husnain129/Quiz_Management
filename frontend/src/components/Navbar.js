@@ -11,7 +11,7 @@ const Navbar = () => {
 			</div>
 			<div className="flex flex-row">
 				<div className="flex flex-row space-x-3 mr-8">
-					<Link to="/" className="flex ">
+					<Link to="/" className="flex focus:outline-none">
 						<div className="flex flex-row space-x-2 text-center items-center text-gray-600 cursor-pointer pl-3 pr-3 rounded-lg  hover:bg-gray-100 ">
 							<h3 className="text-md">Home</h3>
 							<svg
@@ -30,7 +30,7 @@ const Navbar = () => {
 							</svg>
 						</div>
 					</Link>
-					<Link to="/create-quiz" className="flex">
+					<Link to="/create-quiz" className="flex focus:outline-none">
 						<div className="flex space-x-2 flex-row text-center items-center text-gray-600 cursor-pointer px-3 rounded-lg  hover:bg-gray-100">
 							<h3 className="text-md">Create a Quiz</h3>
 							<svg
@@ -49,7 +49,7 @@ const Navbar = () => {
 							</svg>
 						</div>
 					</Link>
-					<Link to="/users" className="flex">
+					<Link to="/users" className="flex focus:outline-none">
 						<div className="flex space-x-2 flex-row text-center items-center text-gray-600 cursor-pointer px-3 rounded-lg  hover:bg-gray-100">
 							<h3 className="text-md">Users</h3>
 							<svg

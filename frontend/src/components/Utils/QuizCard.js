@@ -11,7 +11,7 @@ const QuizCard = () => {
 				/>
 				<div className="flex flex-row items-center text-center pt-4 space-x-2">
 					<img
-						src="http://res.cloudinary.com/mjcarnaje/image/upload/v1613020725/profiles/r0qsgndkrlh2aqodhmz3.jpg"
+						src="blob:http://localhost:3000/c6d349e8-0ce7-42f8-bc44-24791a7b14d5"
 						className="rounded-full h-14 w-14 flex items-center justify-center"
 						alt=""
 					/>
@@ -61,7 +61,7 @@ const QuizCard = () => {
 							</svg>
 							<span>4</span>
 						</div>
-						<Link to="/create-quiz" className="flex">
+						<Link to="/answer-form" className="flex focus:outline-none">
 							<div className="flex flex-row space-x-2 cursor-pointer hover:bg-gray-200 px-2 py-1 rounded-lg">
 								<p>Take Quiz</p>
 								<svg
