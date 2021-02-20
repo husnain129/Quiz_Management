@@ -55,8 +55,8 @@ const QuizGenerator = () => {
 					{/* ..........IMAGE UPLOADER CLOSE........... */}
 
 					<FormControl id="first-name" isRequired>
-						<FormLabel>First name</FormLabel>
-						<Input placeholder="First name" />
+						<FormLabel>Quiz Title</FormLabel>
+						<Input placeholder="Enter Quiz Title" />
 					</FormControl>
 					<FormControl id="description" isRequired>
 						<FormLabel>Description</FormLabel>

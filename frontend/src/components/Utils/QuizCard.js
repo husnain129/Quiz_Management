@@ -1,6 +1,20 @@
+import {
+	Button,
+	Input,
+	Modal,
+	ModalBody,
+	ModalCloseButton,
+	ModalContent,
+	ModalFooter,
+	ModalHeader,
+	ModalOverlay,
+	useDisclosure
+} from '@chakra-ui/react';
 import React from 'react';
 import { Link } from 'react-router-dom';
 const QuizCard = () => {
+	const { isOpen, onOpen, onClose } = useDisclosure();
+
 	return (
 		<div>
 			<div className="flex flex-col relative rounded-xl shadow-2xl w-80 h-96 mb-12 p-2">
@@ -43,7 +57,8 @@ const QuizCard = () => {
 							</svg>
 							<span>3</span>
 						</div>
-						<div className="flex flex-row space-x-1">
+
+						<div className="flex flex-row space-x-1 cursor-pointer" onClick={onOpen}>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								width="24"
@@ -60,6 +75,21 @@ const QuizCard = () => {
 								/>
 							</svg>
 							<span>4</span>
+							<>
+								<Modal onClose={onClose} isOpen={isOpen} isCentered>
+									<ModalOverlay />
+									<ModalContent>
+										<ModalHeader>Enter Comment</ModalHeader>
+										<ModalCloseButton className="active:outline-line focus:outline-none" />
+										<ModalBody>
+											<Input variant="unstyled" placeholder="Comment" />
+										</ModalBody>
+										<ModalFooter>
+											<Button onClick={onClose}>Send</Button>
+										</ModalFooter>
+									</ModalContent>
+								</Modal>
+							</>
 						</div>
 						<Link to="/answer-form" className="flex focus:outline-none">
 							<div className="flex flex-row space-x-2 cursor-pointer hover:bg-gray-200 px-2 py-1 rounded-lg">
