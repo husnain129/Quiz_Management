@@ -19,14 +19,14 @@ const QuizCard = () => {
 		<div>
 			<div className="flex flex-col relative rounded-xl shadow-2xl w-80 h-96 mb-12 p-2">
 				<img
-					src="http://res.cloudinary.com/mjcarnaje/image/upload/v1613021380/profiles/wzsq5f3fghopwundk3ji.jpg"
+					src="https://images.unsplash.com/photo-1551029506-0807df4e2031?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MzF8fGJvb2t8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=60"
 					alt=""
-					className="rounded-md h-48"
+					className="rounded-md h-48 object-cover"
 				/>
 				<div className="flex flex-row items-center text-center pt-4 space-x-2">
 					<img
-						src="blob:http://localhost:3000/c6d349e8-0ce7-42f8-bc44-24791a7b14d5"
-						className="rounded-full h-14 w-14 flex items-center justify-center"
+						src="https://d19502wuiaq9sa.cloudfront.net/750x420/images/11277/seren-sirincenin-en-tarz-10-ani_131515408398960228.jpg"
+						className="rounded-full h-14 w-14 flex items-center object-cover justify-center"
 						alt=""
 					/>
 					<div className="flex flex-col flex-none">

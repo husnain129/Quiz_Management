@@ -75,7 +75,11 @@ const Navbar = () => {
 							<MenuButton className="focus:outline-none">
 								<Wrap>
 									<WrapItem>
-										<Avatar size="md" name="Dan Abrahmov" src="https://bit.ly/dan-abramov" />
+										<Avatar
+											size="md"
+											name="Dan Abrahmov"
+											src="https://images.unsplash.com/photo-1484399172022-72a90b12e3c1?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTJ8fGdpcmx8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=60"
+										/>
 									</WrapItem>
 								</Wrap>
 							</MenuButton>

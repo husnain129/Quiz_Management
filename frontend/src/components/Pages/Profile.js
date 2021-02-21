@@ -3,9 +3,10 @@ import React from 'react';
 import { FiUser } from 'react-icons/fi';
 import { GoNote } from 'react-icons/go';
 import ProfileMenu from '../Utils/ProfileMenu';
-// import QuizMenu from '../Utils/QuizMenu';
+import QuizMenu from '../Utils/QuizMenu';
 
 const Profile = () => {
+	const [menu, setMenu] = React.useState(true);
 	return (
 		<div className="flex flex-col">
 			<div className="flex flex-row justify-between items-center shadow-md p-2">
@@ -42,19 +43,24 @@ const Profile = () => {
 			</div>
 			<div className="flex flex-row justify-center pt-7 space-x-3 bg-gray-100 h-auto pb-16">
 				<div className="flex flex-col space-y-1">
-					<div className="flex flex-row space-x-2 text-blue-700 items-center px-6 bg-white cursor-pointer w-80 h-16 rounded-xl shadow-lg">
+					<div
+						className="flex flex-row space-x-2 text-blue-700 items-center px-6 bg-white cursor-pointer w-80 h-16 rounded-xl shadow-lg"
+						onClick={() => setMenu(true)}
+					>
 						<FiUser className="w-5 h-5 font-md"></FiUser>
 						<p className="font-bold">Profile</p>
 					</div>
-					<div className="flex flex-row space-x-2 text-blue-700 items-center  px-6 bg-white cursor-pointer w-80 h-16 rounded-xl shadow-lg">
+					<div
+						className="flex flex-row space-x-2 text-blue-700 items-center  px-6 bg-white cursor-pointer w-80 h-16 rounded-xl shadow-lg"
+						onClick={() => setMenu(false)}
+					>
 						<GoNote className="w-5 h-5"></GoNote>
 						<p className="font-bold font-md">Quizes</p>
 					</div>
 					<div className="flex flex-row space-x-2"></div>
 				</div>
 				<div className="w-3/5 rounded-2xl" style={{ minHeight: '59vh' }}>
-					{/* <QuizMenu></QuizMenu> */}
-					<ProfileMenu />
+					{menu ? <ProfileMenu /> : <QuizMenu />}
 				</div>
 			</div>
 		</div>
