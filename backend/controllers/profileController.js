@@ -1,48 +1,51 @@
 const Profile = require('../models/profileModel');
+const catchAsync = require('../utils/catchAsync');
+const AppError = require('../utils/appError');
 
-exports.getAllProfile = async (req, res) => {
-	try {
-		const profiles = await Profile.find();
-		res.status(200).json({
-			status: 'success',
-			data: profiles
-		});
-	} catch (error) {
-		console.error(error);
-	}
-};
-exports.getProfile = async (req, res) => {
-	try {
-		const profile = await Profile.findById(req.params.id);
-		res.status(200).json({
-			status: 'success',
-			data: profile
-		});
-	} catch (error) {
-		console.error(error);
-	}
-};
+exports.getAllProfile = catchAsync(async (req, res) => {
+	const profiles = await Profile.find();
+	res.status(200).json({
+		status: 'success',
+		data: profiles
+	});
+});
 
-exports.createProfile = async (req, res) => {
-	try {
-		const newProfile = await Profile.create(req.body);
-		res.status(200).json({
-			status: 'success',
-			profile: newProfile
-		});
-	} catch (error) {
-		console.error(error);
+exports.getProfile = catchAsync(async (req, res) => {
+	const profile = await Profile.findById(req.params.id);
+	if (!profile) {
+		return next(new AppError('No profile found with that ID', 404));
 	}
-};
+	res.status(200).json({
+		status: 'success',
+		data: profile
+	});
+});
 
-exports.deleteProfile = async (req, res) => {
-	try {
-		await Profile.findOneAndDelete(req.params.id);
-		res.status(200).json({
-			status: 'success',
-			profile: null
-		});
-	} catch (error) {
-		console.error(error);
+exports.createProfile = catchAsync(async (req, res) => {
+	const newProfile = await Profile.create(req.body);
+	res.status(200).json({
+		status: 'success',
+		profile: newProfile
+	});
+});
+
+exports.updateProfile = catchAsync(async (req, res) => {
+	const newProfile = await Profile.findOneAndUpdate(req.params.id, req.body, {
+		runValidators: true
+	});
+	res.status(200).json({
+		status: 'success',
+		profile: newProfile
+	});
+});
+
+exports.deleteProfile = catchAsync(async (req, res) => {
+	const profile = await Profile.findOneAndDelete(req.params.id);
+	if (!profile) {
+		return next(new AppError('No profile found with that ID', 404));
 	}
-};
+	res.status(200).json({
+		status: 'success',
+		profile: null
+	});
+});

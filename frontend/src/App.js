@@ -1,5 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Login from './components/Auth/login';
+import SignUp from './components/Auth/signUp';
 import Navbar from './components/Navbar';
 import AnswerForm from './components/Pages/AnswerForm';
 import Home from './components/Pages/Home';
@@ -21,6 +23,12 @@ function App() {
 					</Route>
 					<Route path="/profile">
 						<Profile />
+					</Route>
+					<Route path="/login">
+						<Login />
+					</Route>
+					<Route path="/signup">
+						<SignUp />
 					</Route>
 					<Route exact path="/">
 						<Home />
