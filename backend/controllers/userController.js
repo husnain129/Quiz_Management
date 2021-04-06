@@ -6,6 +6,7 @@ const AppError = require('../utils/appError');
 const { promisify } = require('util');
 const sendEmail = require('../utils/email');
 // Generate JWT token
+
 const signToken = (id) => {
 	return jwt.sign({ id }, process.env.JWT_SECRET, {
 		expiresIn: process.env.JWT_EXPIRES_IN
@@ -14,6 +15,15 @@ const signToken = (id) => {
 
 const createSendToken = (user, statusCode, res) => {
 	const token = signToken(user._id);
+	const cookieOptions = {
+		expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000),
+		secure: true,
+		httpOnly: true
+	};
+	res.cookie('jwt', token, cookieOptions);
+
+	//remove user password to show
+	user.password = undefined;
 	res.status(statusCode).json({
 		status: 'success',
 		token,
@@ -84,7 +94,7 @@ exports.protect = catchAsync(async (req, res, next) => {
 	}
 	// 4) Check if the user Change password after the token was issued
 	if (currentUser.passwordChangeAfter(decoded.iat)) {
-		return next(AppError('User recently change password, Please login again', 401));
+		return next(new AppError('User recently change password, Please login again', 401));
 	}
 
 	// 5) Grant access to protected routes

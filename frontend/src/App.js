@@ -8,22 +8,22 @@ import Home from './components/Pages/Home';
 // import AnswerForm from './components/Pages/AnswerForm';
 import Profile from './components/Pages/Profile';
 import QuizForm from './components/Pages/QuizForm';
-
+import PrivateRoute from './helper/PrivateRoute';
 function App() {
 	return (
 		<div>
 			<Router>
 				<Navbar></Navbar>
 				<Switch>
-					<Route path="/create-quiz">
+					<PrivateRoute path="/create-quiz">
 						<QuizForm />
-					</Route>
-					<Route path="/answer-form">
+					</PrivateRoute>
+					<PrivateRoute path="/answer-form">
 						<AnswerForm />
-					</Route>
-					<Route path="/profile">
+					</PrivateRoute>
+					<PrivateRoute path="/profile">
 						<Profile />
-					</Route>
+					</PrivateRoute>
 					<Route path="/login">
 						<Login />
 					</Route>

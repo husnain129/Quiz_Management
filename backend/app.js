@@ -7,7 +7,9 @@ const userRoute = require('./routes/userRoute');
 const AppError = require('./utils/appError');
 const GlobalErrorHandler = require('./controllers/errorController');
 
+const cors = require('cors');
 app.use(express.json());
+app.use(cors());
 
 app.use('/api/v1/profile', profileRoute);
 app.use('/api/v1/quiz', quizRoute);

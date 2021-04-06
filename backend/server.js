@@ -16,7 +16,7 @@ mongoose
 		console.log('database connection seccessfull');
 	});
 
-const port = 3000;
+const port = 3001;
 app.listen(port, () => {
 	console.log(`server is connected at port ${port}`);
 });
