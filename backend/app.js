@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const app = express();
+const cookieParser = require('cookie-parser');
 const profileRoute = require('./routes/profileRoute');
 const quizRoute = require('./routes/quizRoute');
 const userRoute = require('./routes/userRoute');
@@ -9,8 +10,8 @@ const GlobalErrorHandler = require('./controllers/errorController');
 
 const cors = require('cors');
 app.use(express.json());
-app.use(cors());
-
+app.use(cors());//
+app.use(cookieParser());
 app.use('/api/v1/profile', profileRoute);
 app.use('/api/v1/quiz', quizRoute);
 app.use('/api/v1/user', userRoute);

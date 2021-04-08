@@ -16,12 +16,15 @@ const signToken = (id) => {
 const createSendToken = (user, statusCode, res) => {
 	const token = signToken(user._id);
 	const cookieOptions = {
+		// secure: true,
 		expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000),
-		secure: true,
 		httpOnly: true
 	};
 	res.cookie('jwt', token, cookieOptions);
+	console.log('cookie ceated');
 
+	// res.cookie('jwt', token, { maxAge: 900000, httpOnly: true });
+	// console.log('cookie created successfully');
 	//remove user password to show
 	user.password = undefined;
 	res.status(statusCode).json({

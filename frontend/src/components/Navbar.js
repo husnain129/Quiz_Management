@@ -1,9 +1,20 @@
 import { Avatar, Menu, MenuButton, MenuItem, MenuList, Wrap, WrapItem } from '@chakra-ui/react';
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+
 // import QuizForm from '../components/Pages/QuizForm';
-const Navbar = () => {
-	const [isLogin, setIsLogin] = React.useState(false);
+const Navbar = ({ login, setLoggedIn }) => {
+	const history = useHistory();
+	const [user, setUser] = useState(false);
+	const isLoggedIn = () => {
+		login ? setUser(true) : setUser(false);
+
+		console.log('user', user);
+	};
+	useEffect(async () => {
+		await isLoggedIn();
+	}, [login]);
+	console.log('user', user);
 	return (
 		<div className="">
 			<div className="flex flex-row flex-wrap overflow-hidden justify-between w-full py-3 shadow-xl">
@@ -70,7 +81,7 @@ const Navbar = () => {
 							</div>
 						</Link>
 					</div>
-					{isLogin ? (
+					{user ? (
 						<div className="pr-4">
 							<Menu placement="bottom">
 								<MenuButton className="focus:outline-none">
@@ -92,9 +103,16 @@ const Navbar = () => {
 										<MenuItem className="focus:outline-none">Quizes</MenuItem>
 									</Link>
 									<hr />
-									<Link to="/account">
-										<MenuItem className="focus:outline-none">Logout</MenuItem>
-									</Link>
+									<MenuItem
+										className="focus:outline-none"
+										onClick={() => {
+											setLoggedIn('');
+											localStorage.removeItem('token');
+											history.push('/login');
+										}}
+									>
+										Logout
+									</MenuItem>
 								</MenuList>
 							</Menu>
 						</div>

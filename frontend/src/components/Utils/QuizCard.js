@@ -11,6 +11,7 @@ import {
 	useDisclosure
 } from '@chakra-ui/react';
 import React from 'react';
+import { Cookies } from 'react-cookie';
 import { Link } from 'react-router-dom';
 const QuizCard = () => {
 	const { isOpen, onOpen, onClose } = useDisclosure();
@@ -39,7 +40,7 @@ const QuizCard = () => {
 				</div>
 				<div className="text-red-400 py-4">
 					<div className="flex flex-row items-center justify-around px-auto space-x-4">
-						<div className="flex flex-row space-x-1">
+						<div className="flex flex-row space-x-1 curer-pointer" onClick={() => console.log(Cookies)}>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								width="24"
