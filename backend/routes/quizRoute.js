@@ -5,7 +5,8 @@ const router = express.Router();
 
 router
 	.route('/')
-	.get(userController.protect, quizController.getAllQuizes)
+	// .get(userController.protect, quizController.getAllQuizes)
+	.get(quizController.getAllQuizes)
 	.post(quizController.createQuize)
 	.post(quizController.createAttemptQuize);
 router.route('/:id').get(quizController.getQuize).patch(quizController.updateQuize).delete(quizController.deleteQuize);

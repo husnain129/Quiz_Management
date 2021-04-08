@@ -13,17 +13,13 @@ import {
 import React from 'react';
 import { Cookies } from 'react-cookie';
 import { Link } from 'react-router-dom';
-const QuizCard = () => {
+const QuizCard = ({ data }) => {
 	const { isOpen, onOpen, onClose } = useDisclosure();
-
+	console.log('quizCard', data);
 	return (
 		<div>
 			<div className="flex flex-col relative rounded-xl shadow-2xl w-80 h-96 mb-12 p-2">
-				<img
-					src="https://images.unsplash.com/photo-1551029506-0807df4e2031?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MzF8fGJvb2t8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=60"
-					alt=""
-					className="rounded-md h-48 object-cover"
-				/>
+				<img src={data.image} alt="" className="rounded-md h-48 object-cover" />
 				<div className="flex flex-row items-center text-center pt-4 space-x-2">
 					<img
 						src="https://d19502wuiaq9sa.cloudfront.net/750x420/images/11277/seren-sirincenin-en-tarz-10-ani_131515408398960228.jpg"
@@ -31,12 +27,12 @@ const QuizCard = () => {
 						alt=""
 					/>
 					<div className="flex flex-col flex-none">
-						<h1 className="font-bold">Husnain</h1>
+						<h1 className="font-bold">{data.title}</h1>
 						<p className="text-gray-400">6 days</p>
 					</div>
 				</div>
 				<div className="flex flex-none text-center pt-3 px-2">
-					<p>Complete the quize and lets see how much you know</p>
+					<p>{data.description}</p>
 				</div>
 				<div className="text-red-400 py-4">
 					<div className="flex flex-row items-center justify-around px-auto space-x-4">

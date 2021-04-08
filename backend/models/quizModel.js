@@ -10,7 +10,7 @@ const quizSchema = new mongoose.Schema({
 	description: {
 		type: 'string',
 		required: [true, 'A quiz must have description'],
-		maxlength: [40, 'description must be less than 40 characters']
+		maxlength: [100, 'description must be less than 100 characters']
 	},
 	image: String,
 	questions: [

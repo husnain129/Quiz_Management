@@ -55,6 +55,6 @@ exports.deleteQuize = catchAsync(async (req, res, next) => {
 	}
 	res.status(200).json({
 		status: 'success',
-		data: null
+		data: 'Deleted Successfully'
 	});
 });

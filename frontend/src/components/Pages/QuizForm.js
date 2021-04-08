@@ -11,7 +11,6 @@ const QuizGenerator = () => {
 			setImageUrl(URL.createObjectURL(img));
 		}
 	};
-	console.log(imgUrl);
 	return (
 		<div className="pt-12 bg-gray-50">
 			<div className="flex flex-col items-center text-center">

@@ -5,7 +5,7 @@ import { Link, useHistory } from 'react-router-dom';
 // import QuizForm from '../components/Pages/QuizForm';
 const Navbar = ({ login, setLoggedIn }) => {
 	const history = useHistory();
-	const [user, setUser] = useState(false);
+	const [user, setUser] = useState();
 	const isLoggedIn = () => {
 		login ? setUser(true) : setUser(false);
 
